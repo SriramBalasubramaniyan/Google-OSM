@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:osm_google/connectiveProvider.dart';
+import 'package:osm_google/locationProvider.dart';
 import 'package:osm_google/mapCacheProvider.dart';
 import 'package:osm_google/mapControllerProvider.dart';
 import 'package:osm_google/mapPage.dart';
@@ -12,6 +13,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
         ChangeNotifierProvider(create: (_) => MapCacheProvider()),
         ChangeNotifierProvider(create: (_) => MapControllerProvider()),
+        ChangeNotifierProvider(create: (_) => LocationProvider()),
       ],
       child: const MyApp(),
     ),

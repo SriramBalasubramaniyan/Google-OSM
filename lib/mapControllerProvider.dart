@@ -8,6 +8,11 @@ class MapControllerProvider extends ChangeNotifier {
   Uint8List? overlayBytes;
   CachedSnapshot? overlayMeta;
 
+  MapType mapType = MapType.normal;
+  bool trafficEnabled = false;
+  bool buildingsEnabled = true;
+  bool indoorViewEnabled = true;
+
   void setController(GoogleMapController c) {
     controller = c;
     notifyListeners();
@@ -22,6 +27,27 @@ class MapControllerProvider extends ChangeNotifier {
   void hideOverlay() {
     overlayBytes = null;
     overlayMeta = null;
+    notifyListeners();
+  }
+
+  // NEW: setters for map options
+  void setMapType(MapType type) {
+    mapType = type;
+    notifyListeners();
+  }
+
+  void toggleTraffic() {
+    trafficEnabled = !trafficEnabled;
+    notifyListeners();
+  }
+
+  void toggleBuildings() {
+    buildingsEnabled = !buildingsEnabled;
+    notifyListeners();
+  }
+
+  void toggleIndoor() {
+    indoorViewEnabled = !indoorViewEnabled;
     notifyListeners();
   }
 }
